@@ -1,12 +1,7 @@
 
-import { createPhotos } from './data.js';
-import { renderPhoto } from './photos.js';
+import {getOtherPhotos} from'./photos.js';
 
+const formOpen = document.querySelector('.img-upload__overlay');
+formOpen.classList.remove('hidden');
 
-const pictures = document.querySelector('.pictures');
-const fragment = document.createDocumentFragment();
-
-const photos = createPhotos();
-const otherPictures = renderPhoto(photos[5]);
-fragment.append(otherPictures);
-pictures.append(fragment);
+getOtherPhotos();

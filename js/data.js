@@ -20,7 +20,7 @@ const counterUrl = makeCounterIndex();
 
 const getOtherPhotos = () => ({
   id: counterId().toString(),
-  url: `photos/${counterUrl().toString().padStart(2, '0')}.jpg`,
+  url: `photos/${counterUrl().toString()}.jpg`,
   description: getRandomArrayElement(DESCRIPTION),
   likes: getRandomPositiveInteger(15, 200),
   comments: getRandomPositiveInteger(0, 200)
