@@ -1,7 +1,10 @@
 
-import {getOtherPhotos} from'./photos.js';
+import { getOtherPhotos } from'./photos.js';
+import { validateForm } from './validation.js';
+import { closeForm, openForm } from './open-loader.js';
 
-const formOpen = document.querySelector('.img-upload__overlay');
-formOpen.classList.remove('hidden');
 
 getOtherPhotos();
+validateForm();
+openForm();
+closeForm();

@@ -50,11 +50,14 @@ const makeCounterIndex = () => {
   };
 };
 
+const isEscapeKey = (evt) => evt.key === 'Escape';
+
 export {
   checkStringLength,
   getRandomArrayElement,
   getRandomPositiveFloat,
   getRandomPositiveInteger,
   getArray,
-  makeCounterIndex
+  makeCounterIndex,
+  isEscapeKey
 };
