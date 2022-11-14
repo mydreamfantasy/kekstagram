@@ -1,4 +1,3 @@
-import { createPhotos } from './data.js';
 
 const pictures = document.querySelector('.pictures');
 const similarPhotosTemplate = document.querySelector('#picture')
@@ -6,11 +5,9 @@ const similarPhotosTemplate = document.querySelector('#picture')
   .querySelector('.picture');
 
 
-const photos = createPhotos();
-
 const fragment = document.createDocumentFragment();
 
-const getOtherPhotos = () => {
+const getOtherPhotos = (photos) => {
   photos.forEach(({ url, likes, comments }) => {
 
     const otherPhoto = similarPhotosTemplate.cloneNode(true);

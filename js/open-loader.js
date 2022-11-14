@@ -1,4 +1,7 @@
 import { isEscapeKey } from './util.js';
+import { toggleScale } from './toggler_scale.js';
+import { changeFilter } from './slider.js';
+
 const loader = document.querySelector('.img-upload__overlay');
 const body = document.querySelector('body');
 const loaderOpenElement = document.querySelector('.img-upload__label');
@@ -16,6 +19,8 @@ const openForm = () => {
       }
     });
   });
+  toggleScale();
+  changeFilter();
 };
 
 const closeForm = () => {
