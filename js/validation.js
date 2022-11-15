@@ -1,5 +1,7 @@
 import { sendData } from './api.js';
 import { showErrorMessage, showSuccessMessage } from './modal.js';
+import { clearPhotos } from './preview-photo.js';
+import { setDefaultEffects } from './slider.js';
 
 const imageUploadForm = document.querySelector('.img-upload__form');
 const photoForm = document.querySelector('.img-upload__form');
@@ -29,6 +31,7 @@ const unblockSubmitButton = () => {
 
 const resetForm = () => {
   imageUploadForm.reset();
+  clearPhotos();
 };
 
 const onSendError = () => {
@@ -41,19 +44,18 @@ const onSendSuccess = () => {
   resetForm();
   unblockSubmitButton();
   closeLoader();
+  setDefaultEffects();
 };
 
 const validateForm = () => {
   photoForm.addEventListener('submit', (evt) => {
     evt.preventDefault();
-
     const isValid = pristine.validate();
     if (isValid) {
       blockSubmitButton();
       sendData(
         onSendSuccess,
         onSendError,
-        new FormData(evt.target),
       );
     }
   });
