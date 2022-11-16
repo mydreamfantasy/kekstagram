@@ -1,6 +1,7 @@
 import { isEscapeKey } from './util.js';
 import { toggleScale } from './toggler_scale.js';
 import { changeFilter } from './slider.js';
+import { resetForm } from './preview-photo.js';
 
 const loader = document.querySelector('.img-upload__overlay');
 const body = document.querySelector('body');
@@ -16,6 +17,7 @@ const openForm = () => {
       if (isEscapeKey(evt)) {
         evt.preventDefault();
         loader.classList.add('hidden');
+        resetForm();
       }
     });
   });
@@ -27,6 +29,7 @@ const closeForm = () => {
   loaderCloseElement.addEventListener('click', () => {
     loader.classList.add('hidden');
     body.classList.remove('modal-open');
+    resetForm();
   });
 };
 

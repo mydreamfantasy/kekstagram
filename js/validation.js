@@ -1,13 +1,12 @@
 import { sendData } from './api.js';
 import { showErrorMessage, showSuccessMessage } from './modal.js';
-import { clearPhotos } from './preview-photo.js';
-import { setDefaultEffects } from './slider.js';
+import { resetForm } from './preview-photo.js';
 
-const imageUploadForm = document.querySelector('.img-upload__form');
 const photoForm = document.querySelector('.img-upload__form');
 const submitButton = document.querySelector('.img-upload__submit');
 const loader = document.querySelector('.img-upload__overlay');
 const body = document.querySelector('body');
+
 
 const pristine = new Pristine(photoForm, {
   classTo: 'img-upload__text',
@@ -29,10 +28,6 @@ const unblockSubmitButton = () => {
   submitButton.textContent = 'Опубликовать';
 };
 
-const resetForm = () => {
-  imageUploadForm.reset();
-  clearPhotos();
-};
 
 const onSendError = () => {
   showErrorMessage();
@@ -44,7 +39,6 @@ const onSendSuccess = () => {
   resetForm();
   unblockSubmitButton();
   closeLoader();
-  setDefaultEffects();
 };
 
 const validateForm = () => {
@@ -56,9 +50,10 @@ const validateForm = () => {
       sendData(
         onSendSuccess,
         onSendError,
+        new FormData(evt.target)
       );
     }
   });
 };
 
-export { validateForm };
+export { validateForm, resetForm };

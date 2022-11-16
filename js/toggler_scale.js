@@ -36,4 +36,4 @@ const toggleScale = () => {
   scaleBigger.addEventListener('click', onScaleIncrease);
 };
 
-export { toggleScale };
+export { toggleScale, SCALE_MAX, scalePhotoPreview };
